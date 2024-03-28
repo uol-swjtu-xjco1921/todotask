@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     //displace menu
     int num_choice = display_menu();
    
+    int choice;
     do{
         printf("Enter menu option: \n");
     }while ((choice=get_choice(num_choice))==-1);
@@ -28,8 +29,10 @@ int main(int argc, char *argv[])
         list = add_task(list);
 
         // option 2: Mark as done
-        done(list)
-        check = display_bool(list, size, 0);
+        done(list);
+        int size = 0;
+        int check;
+        check = display_bool(list, size);
         // make sure check is > 0 - don't bother if == 0.
 
         // option 3: Show all to-do
@@ -41,7 +44,7 @@ int main(int argc, char *argv[])
         remove(list);
 
         // option 5: exit
-        save_list(list);
+        save_list(list, argv[1]);
         free_list(list);
 
         do{
